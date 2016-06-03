@@ -72,6 +72,7 @@ namespace Metal_Archives.Controllers
             DatabaseController DBC = new DatabaseController();
             if (DBC.ValidateLogin(model))
             {
+                Session["Username"] = model.Username;
                 return RedirectToAction("Index", "Home");
             }
            return View(model);

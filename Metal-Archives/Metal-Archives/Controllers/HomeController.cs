@@ -45,5 +45,11 @@ namespace Metal_Archives.Controllers
 
             return View();
         }
+        public ActionResult Manage()
+        {
+            ViewBag.Message = "Manage";
+
+            return View();
+        }
     }
 }

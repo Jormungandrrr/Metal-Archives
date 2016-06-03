@@ -92,15 +92,12 @@ namespace Metal_Archives.Controllers
         #region Login
         public virtual bool ValidateLogin(LoginViewModel model)
         {
-            if (model.Password == ReadStringWithCondition("tblUser", "pass", "username", model.Username) && model.Password != "")
+            if (model.Password == ReadStringWithCondition("tblUser", "pass", "username", model.Username))
             {
                 return true;
 
             }
-            else
-            {
-                return false;
-            }
+            else{return false;}
         }
         #endregion
     }
