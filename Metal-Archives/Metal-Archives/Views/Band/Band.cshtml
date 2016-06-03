@@ -1,0 +1,47 @@
+﻿@using Metal_Archives.Models;
+@model BandModel
+@{
+    ViewBag.Title = "Band";
+}
+
+<h2>@Model.Name</h2>
+<img src="@Model.Logo"alt="@Model.Name" />
+<table style="width:100%">
+    <tr>
+        <th>Country</th>
+        <th>Location</th>
+        <th>Status</th>
+        <th>Formed In</th>
+        <th>Genre</th>
+        <th>Lyrical Theme</th>
+        <th>Current label</th>
+    </tr>
+
+    <tbody></tbody>
+        <tr>
+            <td>@Model.Country</td>
+            <td>@Model.Place </td>
+            <td>@Model.Status </td>
+            <td>@Model.Formed.ToShortDateString() </td>
+            <td>@Model.Genre </td>
+        </tr>
+    </table>
+<p>@Model.Description</p>
+<table style="width:100%">
+    <tr>
+        <th>Album Name</th>
+        <th>Type</th>
+        <th>Release Date</th>
+    </tr>
+    <tbody></tbody>
+        @foreach (AlbumModel Album in Model.Albums)
+        {
+        <tr>
+            <td>@Album.Name</td>
+            <td>@Album.Type </td>
+            <td>@Album.Release </td>
+        </tr>
+        }
+</table>
+
+
