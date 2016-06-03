@@ -89,5 +89,19 @@ namespace Metal_Archives.Controllers
             return Albums;
         }
         #endregion
+        #region Login
+        public virtual bool ValidateLogin(LoginViewModel model)
+        {
+            if (model.Password == ReadStringWithCondition("tblUser", "pass", "username", model.Username) && model.Password != "")
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
     }
 }
