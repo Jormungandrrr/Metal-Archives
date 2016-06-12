@@ -6,8 +6,9 @@ namespace Metal_Archives.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "Username")]
         public string Email { get; set; }
+        public string Username { get; set; }
     }
 
     public class ExternalLoginListViewModel

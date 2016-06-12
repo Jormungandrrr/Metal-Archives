@@ -17,5 +17,10 @@ namespace Metal_Archives.Models
             this.Type = type;
             this.Release = release;
         }
+
+        public override string ToString()
+        {
+            return Name + " - " + Release.ToShortDateString();
+        }
     }
 }

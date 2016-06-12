@@ -28,5 +28,10 @@ namespace Metal_Archives.Models
             this.Biography = biography;
             this.Trivia = trivia;
         }
+
+        public override string ToString()
+        {
+            return StageName + " - " + FullName;
+        }
     }
 }

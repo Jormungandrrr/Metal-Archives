@@ -32,7 +32,7 @@ namespace Metal_Archives.Controllers
         public ActionResult Bands()
         {
             ViewBag.Message = "Bands.";
-            DatabaseController DBC = new DatabaseController();
+            BandDB DBC = new BandDB();
             List<BandModel> bands = new List<BandModel>();
             foreach (BandModel bm in DBC.GetAllBands())
             {
@@ -48,10 +48,9 @@ namespace Metal_Archives.Controllers
         }
         public ActionResult Manage(string username)
         {
+            ViewBag.Message = "Manage";
             UserDB userdatabase = new UserDB();
             UserModel User = userdatabase.GetUser(username);
-            ViewBag.Message = "Manage";
-            
 
             return View(User);
         }

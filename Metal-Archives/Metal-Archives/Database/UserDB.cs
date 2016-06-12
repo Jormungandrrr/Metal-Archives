@@ -20,5 +20,15 @@ namespace Metal_Archives.Database
             UserModel User = (UserModel)ReadObjectWithCondition("tblUser", Columns, "Username", Username, "User");
             return User;
         }
+
+        public virtual bool ValidateLogin(LoginViewModel model)
+        {
+            if (model.Password == ReadStringWithCondition("tblUser", "pass", "username", model.Username))
+            {
+                return true;
+
+            }
+            else { return false; }
+        }
     }
 }

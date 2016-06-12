@@ -28,5 +28,10 @@ namespace Metal_Archives.Models
             this.Description = description;
             this.Logo = logo;
         }
+
+        public override string ToString()
+        {
+            return Name; 
+        }
     }
 }

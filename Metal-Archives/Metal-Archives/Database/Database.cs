@@ -146,7 +146,6 @@ namespace Metal_Archives.Database
             {
                 using (OracleCommand command = new OracleCommand("SELECT " + columnNames + " FROM " + table + " WHERE " + ConditionValue1 + " = '" + ConditionValue2 + "'", conn))
                 {
-                    //command.Parameters.Add(new OracleParameter(ConditionValue1, ConditionValue2));
                     try
                     {
                         command.Connection.Open();

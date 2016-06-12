@@ -1,0 +1,52 @@
+﻿@using Metal_Archives.Models;
+@model BandModel
+@{
+    ViewBag.Title = "AddBand";
+}
+
+<h2>AddBand</h2>
+@using (Html.BeginForm("AddBand", "Add", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(m => Model.Name, new { @class = "col-md-2 control-label" })
+    @Html.TextBoxFor(m => Model.Name, new { @class = "input-group" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => Model.Genre, new { @class = "col-md-2 control-label" })
+    @Html.TextBoxFor(m => Model.Genre, new { @class = "input-group" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => Model.Country, new { @class = "col-md-2 control-label" })
+    @Html.TextBoxFor(m => Model.Country, new { @class = "input-group" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => Model.Place, new { @class = "col-md-2 control-label" })
+    @Html.TextBoxFor(m => Model.Place, new { @class = "input-group" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => Model.Origin, new { @class = "col-md-2 control-label" })
+    @Html.TextBoxFor(m => Model.Origin, new { @class = "input-group" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => Model.yearsactive, new { @class = "col-md-2 control-label" })
+    @Html.TextBoxFor(m => Model.yearsactive, new { @class = "input-group" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => Model.Status, new { @class = "col-md-2 control-label" })
+    @Html.TextBoxFor(m => Model.Status, new { @class = "input-group" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => Model.Formed, new { @class = "col-md-2 control-label" })
+    @Html.TextBoxFor(m => Model.Formed, new { @class = "input-group" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => Model.Description, new { @class = "col-md-2 control-label" })
+    @Html.TextBoxFor(m => Model.Description, new { @class = "input-group" })
+</div>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" class="btn btn-default" value="Add Band" />
+    </div>
+</div>
+}

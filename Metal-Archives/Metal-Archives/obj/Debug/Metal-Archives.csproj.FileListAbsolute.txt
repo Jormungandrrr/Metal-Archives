@@ -161,6 +161,6 @@ C:\Users\Jorrit\Documents\GitHub\Metal-Archives\Metal-Archives\Metal-Archives\bi
 C:\Users\Jorrit\Documents\GitHub\Metal-Archives\Metal-Archives\Metal-Archives\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Jorrit\Documents\GitHub\Metal-Archives\Metal-Archives\Metal-Archives\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Jorrit\Documents\GitHub\Metal-Archives\Metal-Archives\Metal-Archives\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Jorrit\Documents\GitHub\Metal-Archives\Metal-Archives\Metal-Archives\obj\Debug\Metal-Archives.csprojResolveAssemblyReference.cache
 C:\Users\Jorrit\Documents\GitHub\Metal-Archives\Metal-Archives\Metal-Archives\obj\Debug\Metal-Archives.dll
 C:\Users\Jorrit\Documents\GitHub\Metal-Archives\Metal-Archives\Metal-Archives\obj\Debug\Metal-Archives.pdb
+C:\Users\Jorrit\Documents\GitHub\Metal-Archives\Metal-Archives\Metal-Archives\obj\Debug\Metal-Archives.csprojResolveAssemblyReference.cache

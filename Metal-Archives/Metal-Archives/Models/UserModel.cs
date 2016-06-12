@@ -25,5 +25,10 @@ namespace Metal_Archives.Models
             this.Country = country;
             this.Password = password;
         }
+
+        public override string ToString()
+        {
+            return Username + " - " + FullName ;
+        }
     }
 }

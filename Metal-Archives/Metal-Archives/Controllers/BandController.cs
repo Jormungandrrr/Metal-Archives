@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Metal_Archives;
 using Metal_Archives.Models;
+using Metal_Archives.Database;
 
 namespace Metal_Archives.Controllers
 {
@@ -17,7 +18,7 @@ namespace Metal_Archives.Controllers
         }
         public ActionResult Band(string bandname)
         {
-            DatabaseController DBC = new DatabaseController();
+            BandDB DBC = new BandDB();
             BandModel band = DBC.GetBand(bandname);
             return View(band);
         }
