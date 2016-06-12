@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Metal_Archives.Models;
 using Metal_Archives.Controllers;
+using Metal_Archives.Database;
 
 namespace Metal_Archives.Controllers
 {
@@ -69,8 +70,8 @@ namespace Metal_Archives.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model)
         {
-            DatabaseController DBC = new DatabaseController();
-            if (DBC.ValidateLogin(model))
+            UserDB UDB = new UserDB();
+            if (UDB.ValidateLogin(model))
             {
                 Session["Username"] = model.Username;
                 return RedirectToAction("Manage", "Home", model);
@@ -343,7 +344,7 @@ namespace Metal_Archives.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Manage");
+                return RedirectToAction("Index", "Manage",model.Username);
             }
 
             if (ModelState.IsValid)
