@@ -18,6 +18,7 @@ namespace Metal_Archives.Models
         public string Genre { get; set; }
         public string Logo { get; set; }
         public List<AlbumModel> Albums = new List<AlbumModel>();
+        public List<ArtistModel> Members = new List<ArtistModel>();
         public BandModel(string name, string country,string status,DateTime formed, string description, string logo)
         {
             this.Name = name;

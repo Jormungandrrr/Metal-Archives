@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Metal_Archives;
 using Metal_Archives.Models;
+using Metal_Archives.Database;
 
 namespace Metal_Archives.Controllers
 {
@@ -45,11 +46,14 @@ namespace Metal_Archives.Controllers
 
             return View();
         }
-        public ActionResult Manage()
+        public ActionResult Manage(string username)
         {
+            UserDB userdatabase = new UserDB();
+            UserModel User = userdatabase.GetUser(username);
             ViewBag.Message = "Manage";
+            
 
-            return View();
+            return View(User);
         }
     }
 }

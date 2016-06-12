@@ -7,7 +7,7 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("Welkom " + Session["username"], "Manage",routeValues: null, htmlAttributes: new { id = "ManageLink" })
+            @Html.ActionLink((string)Session["username"], "Manage",routeValues: Session["username"], htmlAttributes: new { id = "ManageLink" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>

@@ -8,7 +8,7 @@ using Oracle.ManagedDataAccess.Client;
 using Metal_Archives.Models;
 
 
-namespace Metal_Archives
+namespace Metal_Archives.Database
 {
     public abstract class Database
     {
@@ -146,6 +146,7 @@ namespace Metal_Archives
             {
                 using (OracleCommand command = new OracleCommand("SELECT " + columnNames + " FROM " + table + " WHERE " + ConditionValue1 + " = '" + ConditionValue2 + "'", conn))
                 {
+                    //command.Parameters.Add(new OracleParameter(ConditionValue1, ConditionValue2));
                     try
                     {
                         command.Connection.Open();
@@ -161,6 +162,11 @@ namespace Metal_Archives
                                 else if (type == "Album")
                                 {
                                     AlbumModel am = new AlbumModel(reader[data[0]].ToString(), reader[data[1]].ToString(), Convert.ToDateTime(reader[data[2]]));
+                                    ReturnData.Add(am);
+                                }
+                                else if (type == "Artist")
+                                {
+                                    ArtistModel am = new ArtistModel(reader[data[0]].ToString(), reader[data[1]].ToString(), Convert.ToInt32(reader[data[2]]), Convert.ToDateTime(reader[data[3]]), reader[data[4]].ToString(), reader[data[5]].ToString(), reader[data[6]].ToString());
                                     ReturnData.Add(am);
                                 }
                                 else { }
@@ -195,6 +201,11 @@ namespace Metal_Archives
                                 {
                                     BandModel bm = new BandModel(reader[data[0]].ToString(), reader[data[1]].ToString(), reader[data[2]].ToString(), Convert.ToDateTime(reader[data[3]]), reader[data[4]].ToString(), reader[data[5]].ToString());
                                     ReturnData = bm;
+                                }
+                                else if (type == "User")
+                                {
+                                    UserModel user = new UserModel(reader[data[0]].ToString(), reader[data[1]].ToString(), Convert.ToInt32(reader[data[2]]), reader[data[3]].ToString(), reader[data[4]].ToString(), reader[data[5]].ToString());
+                                    ReturnData = user;
                                 }
                             }
                             return ReturnData;

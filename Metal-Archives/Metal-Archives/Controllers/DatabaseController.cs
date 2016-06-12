@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using Metal_Archives;
 using Metal_Archives.Models;
+using Metal_Archives.Database;
 
 namespace Metal_Archives.Controllers
 {
-    public class DatabaseController : Database
+    public class DatabaseController : Database.Database
     {
         #region Band
         public List<object> GetAllBands()
@@ -70,16 +71,20 @@ namespace Metal_Archives.Controllers
                 }
                 else { Band.Genre += genre + "/"; }
             }
-            foreach (AlbumModel a in GetAlbums(Band.Name))
+            foreach (AlbumModel a in GetAlbumsByBand(Band.Name))
             {
                 Band.Albums.Add(a);
             }
+            foreach (ArtistModel a in GetArtistByBand(Band.Name))
+            {
+                Band.Members.Add(a);
+            }
 
-                return Band;
+            return Band;
         }
         #endregion
         #region Album
-        public List<object> GetAlbums(string bandname)
+        public List<object> GetAlbumsByBand(string bandname)
         {
             List<string> Columns = new List<string>();
             Columns.Add("Albumname");
@@ -98,6 +103,22 @@ namespace Metal_Archives.Controllers
 
             }
             else{return false;}
+        }
+        #endregion
+
+        #region Artist
+        public List<object> GetArtistByBand(string bandname)
+        {
+            List<string> Columns = new List<string>();
+            Columns.Add("Stagename");
+            Columns.Add("FullName");
+            Columns.Add("Age");
+            Columns.Add("Birthdate");
+            Columns.Add("Origin");
+            Columns.Add("biography");
+            Columns.Add("Trivia");
+            List<object> Artists = ReadObjects("tblArtist", Columns, "Artistnr", ReadStringWithCondition("tblLineUp", "Artistnr", "Bandnr", ReadStringWithCondition("tblBand","Bandnr","Bandname",bandname)), "Artist");
+            return Artists;
         }
         #endregion
     }

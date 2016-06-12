@@ -73,7 +73,7 @@ namespace Metal_Archives.Controllers
             if (DBC.ValidateLogin(model))
             {
                 Session["Username"] = model.Username;
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Manage", "Home", model);
             }
            return View(model);
         }
@@ -378,7 +378,8 @@ namespace Metal_Archives.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Session.Clear();
+            Session["Username"] = null;
             return RedirectToAction("Index", "Home");
         }
 
