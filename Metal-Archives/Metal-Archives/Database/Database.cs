@@ -56,8 +56,10 @@ namespace Metal_Archives.Database
 
             using (OracleConnection conn = new OracleConnection(Connectionstring))
             {
-                using (OracleCommand command = new OracleCommand("UPDATE " + table + " SET " + querUpdateValues + " WHERE " + condition1 + " = '" + condition2 + "'", conn))
+                using (OracleCommand command = new OracleCommand("UPDATE " + table + " SET " + querUpdateValues + " WHERE " + condition1 + " = :Condition2", conn))
                 {
+                    command.BindByName = true;
+                    command.Parameters.Add(new OracleParameter(":Condition2", condition2));
                     foreach (string c in values.Keys)
                     {
                         string value = values[c];
@@ -83,8 +85,10 @@ namespace Metal_Archives.Database
             string ReturnData = "";
             using (OracleConnection conn = new OracleConnection(Connectionstring))
             {
-                using (OracleCommand command = new OracleCommand("SELECT " + column + " FROM " + table + " WHERE " + ConditionValue1 + " = '" + ConditionValue2 + "'", conn))
+                using (OracleCommand command = new OracleCommand("SELECT " + column + " FROM " + table + " WHERE " + ConditionValue1 + " = :Condition2", conn))
                 {
+                    command.BindByName = true;
+                    command.Parameters.Add(new OracleParameter(":Condition2", ConditionValue2));
                     try
                     { 
                         command.Connection.Open();
@@ -144,8 +148,10 @@ namespace Metal_Archives.Database
             string columnNames = GetColumnNames(data);
             using (OracleConnection conn = new OracleConnection(Connectionstring))
             {
-                using (OracleCommand command = new OracleCommand("SELECT " + columnNames + " FROM " + table + " WHERE " + ConditionValue1 + " = '" + ConditionValue2 + "'", conn))
+                using (OracleCommand command = new OracleCommand("SELECT " + columnNames + " FROM " + table + " WHERE " + ConditionValue1 + " = :Condition2", conn))
                 {
+                    command.BindByName = true;
+                    command.Parameters.Add(new OracleParameter(":Condition2", ConditionValue2));
                     try
                     {
                         command.Connection.Open();
@@ -187,8 +193,10 @@ namespace Metal_Archives.Database
             string columnNames = GetColumnNames(data);
             using (OracleConnection conn = new OracleConnection(Connectionstring))
             {
-                using (OracleCommand command = new OracleCommand("SELECT " + columnNames + " FROM " + table + " WHERE " + ConditionValue1 + " = '" + ConditionValue2 + "'", conn))
+                using (OracleCommand command = new OracleCommand("SELECT " + columnNames + " FROM " + table + " WHERE "+ ConditionValue1 + " = :Condition2", conn))
                 {
+                    command.BindByName = true;
+                    command.Parameters.Add(new OracleParameter(":Condition2", ConditionValue2));
                     try
                     {
                         command.Connection.Open();
@@ -226,8 +234,10 @@ namespace Metal_Archives.Database
             List<string> ReturnData = new List<string>();
             using (OracleConnection conn = new OracleConnection(Connectionstring))
             {
-                using (OracleCommand command = new OracleCommand("SELECT " + ColumNames + " FROM " + table + " WHERE " + ConditionValue1 + " = '" + ConditionValue2 + "'", conn))
+                using (OracleCommand command = new OracleCommand("SELECT " + ColumNames + " FROM " + table + " WHERE " + ConditionValue1 + " = :Condition2", conn))
                 {
+                    command.BindByName = true;
+                    command.Parameters.Add(new OracleParameter(":Condition2", ConditionValue2));
                     command.Connection.Open();
                     using (OracleDataReader reader = command.ExecuteReader())
                     {
