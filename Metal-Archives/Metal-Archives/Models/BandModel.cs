@@ -28,10 +28,15 @@ namespace Metal_Archives.Models
             this.Description = description;
             this.Logo = logo;
         }
+        public BandModel()
+        {
+
+        }
 
         public override string ToString()
         {
             return Name; 
         }
+
     }
 }

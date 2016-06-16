@@ -91,9 +91,9 @@ namespace Metal_Archives.Database
             values.Add("Place", Band.Place);
             values.Add("Status", Band.Status);
             values.Add("Description", Band.Description);
-            values.Add("Formed", Band.Formed.ToString());
-            values.Add("YearsActive", Band.Formed.ToString());
-            Insert("ADRES", values);
+            values.Add("Formed", Band.Formed.ToString("yyyy-mm-dd hh24:mi:ss"));
+            values.Add("YearsActive", Band.yearsactive.ToString("yyyy-mm-dd hh24:mi:ss"));
+            Insert("tblBand", values);
         }
         #endregion
         #region Album
