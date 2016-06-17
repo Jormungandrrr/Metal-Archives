@@ -86,13 +86,15 @@ namespace Metal_Archives.Database
         public void InsertBand(BandModel Band)
         {
             Dictionary<string, string> values = new Dictionary<string, string>();
+            values.Add("Usernr", "1");
+            values.Add("Labelnr", "1");
             values.Add("BandName", Band.Name);
             values.Add("Origin", Band.Origin);
             values.Add("Place", Band.Place);
             values.Add("Status", Band.Status);
             values.Add("Description", Band.Description);
-            values.Add("Formed", Band.Formed.ToString("yyyy-mm-dd hh24:mi:ss"));
-            values.Add("YearsActive", Band.yearsactive.ToString("yyyy-mm-dd hh24:mi:ss"));
+            values.Add("Formed", Band.Formed.ToString("dd/MMM/yyyy"));
+            values.Add("Logo", Band.Logo);
             Insert("tblBand", values);
         }
         #endregion
