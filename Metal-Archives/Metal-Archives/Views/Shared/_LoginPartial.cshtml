@@ -6,9 +6,7 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink((string)Session["username"], "Manage",Session["username"].ToString(), htmlAttributes: new { id = "ManageLink" })
-        </li>
+        <li>@Html.ActionLink((string)Session["username"], "Manage", new {username = Session["username"].ToString() }, htmlAttributes: new { id = "ManageLink" })</li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
     }

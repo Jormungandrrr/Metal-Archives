@@ -3,12 +3,14 @@
 @{
     ViewBag.Title = "User Page  " + @Session["username"];
 }
+@if (Session["username"] != null)
+{
+    <h2>@ViewBag.Title.</h2>
 
-<h2>@ViewBag.Title.</h2>
-
-<p class="text-success">@ViewBag.StatusMessage</p>
-<p> @Model.FullName </p>
-<p> @Model.Age </p>
-<p> @Model.Country </p>
-<br />
-<td><a href="@Url.Action("AddBand" , "Add")"> Add Band</a></td>
+    <p class="text-success">@ViewBag.StatusMessage</p>
+    <p> @Model.FullName </p>
+    <p> @Model.Age </p>
+    <p> @Model.Country </p>
+    <br />
+    <td><a href="@Url.Action("AddBand" , "Add")"> Add Band</a></td>
+}

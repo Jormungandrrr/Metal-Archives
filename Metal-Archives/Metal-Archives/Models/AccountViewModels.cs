@@ -65,9 +65,14 @@ namespace Metal_Archives.Models
     public class RegisterViewModel
     {
         [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        [DataType(DataType.Text)]
+        [Display(Name = "username")]
+        public string Username { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "name")]
+        public string Name { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

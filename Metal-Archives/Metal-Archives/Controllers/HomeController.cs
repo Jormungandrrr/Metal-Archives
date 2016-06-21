@@ -46,13 +46,16 @@ namespace Metal_Archives.Controllers
 
             return View();
         }
-        public ActionResult Manage(string username)
+        public ActionResult Manage()
         {
             ViewBag.Message = "Manage";
             UserDB userdatabase = new UserDB();
-            UserModel User = userdatabase.GetUser(username);
-
-            return View(User);
+            if (Session["Username"] != null)
+            {
+                UserModel User = userdatabase.GetUser(Session["Username"].ToString());
+                return View(User);
+            }
+            return View();
         }
     }
 }

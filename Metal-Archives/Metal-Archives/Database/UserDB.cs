@@ -30,5 +30,14 @@ namespace Metal_Archives.Database
             }
             else { return false; }
         }
+
+        public void CreateUser(RegisterViewModel rgm)
+        {
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            values.Add("username", rgm.Username);
+            values.Add("pass", rgm.Password);
+            values.Add("fullname", rgm.Name);
+            Insert("tblUser",values);
+        }
     }
 }
